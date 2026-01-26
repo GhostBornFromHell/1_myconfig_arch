@@ -127,8 +127,8 @@ gitwhoami() {
 
 ghupdates() {
     # met a jour sur le compte lier a gh
-    git config user.name "$G2_NAME"
-    git config user.email "$G2_EMAIL"
+    git config user.name "$G1_NAME"
+    git config user.email "$G1_EMAIL"
 
     git add .
     git commit -m "New updates"
@@ -157,8 +157,8 @@ ghnew() {
     fi
     
     echo "# New repo open" > README.md || ko
-    git config user.name "$G2_NAME"
-    git config user.email "$G2_EMAIL"
+    git config user.name "$G1_NAME"
+    git config user.email "$G1_EMAIL"
 
     git add .
     git commit -m "New repo open"
