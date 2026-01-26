@@ -1,0 +1,13 @@
+#!/bin/bash
+
+FILE="$1"
+
+if file --mime-type "$FILE" | grep -q "image/"; then
+    # On force la taille à 1x1 pour être sûr que ça plante pas,
+    # et on utilise --align=left pour être safe
+    #kitten icat --align=left --place=1x1@0x0 --stdin=no "$FILE"
+    kitten icat --clear --transfer-mode=memory --unicode-placeholder --stdin=no --place="$dim@0x0" "$file" | sed '$d' | sed $'$s/$/\e[m/'
+    echo "" # Petit saut de ligne pour dire à FZF "c'est fini"
+else
+    bat --style=numbers --color=always "$FILE"
+fi

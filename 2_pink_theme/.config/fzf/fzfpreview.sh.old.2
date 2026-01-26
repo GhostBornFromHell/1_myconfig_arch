@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+FILE="$1"
+
+# Force un texte bidon pour voir si ça s'affiche
+echo "TEST: $FILE"
+echo "Detection:"
+file --mime-type "$FILE"

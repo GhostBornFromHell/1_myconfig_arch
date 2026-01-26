@@ -1,0 +1,171 @@
+setopt promptsubst
+# Prompt symbols 
+prompt_symbols+=(' 😍 ')
+prompt_symbols+=(' ✖‿✖ ')
+prompt_symbols+=(' 💝 ')
+prompt_symbols+=(' 🩵 ')
+prompt_symbols+=(' 🔥 ')
+prompt_symbols+=(' 🐧 ')
+prompt_symbols+=(' 🖕 ')
+prompt_symbols+=('  ')
+prompt_symbols+=(' 👽 ')
+prompt_symbols+=(' 😏 ')
+prompt_symbols+=(' 󰣭 ')
+prompt_symbols+=('   ')
+prompt_symbols+=(' 🌐 ')
+prompt_symbols+=(' 👿 ')
+prompt_symbols+=(' 🌸 ')
+
+# GIT PROMPT
+[[ $prompt_git_want_i == true ]] && {}
+git_symbols+=('𖣂︎')
+git_symbols+=('𖤝')
+# git_symbols+=('🌱')
+git_symbols+=('')
+git_symbols+=('𖦥')
+git_symbols+=('')
+
+python_symbols+=('󰌠 ')
+#python_symbols+=('🐍')
+python_symbols+=(' ')
+python_symbols+=('󱔎 ')
+python_symbols+=('𜳺')
+
+prompt_symbol_success='🟢'
+prompt_symbol_fail='💩'
+
+# prompt_symbol_fail='◉'
+#prompt_symbol_fail='◉'
+
+
+git_branch_prompt() {
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    local branch=$(git branch --show-current 2>/dev/null)
+    [[ -n $branch ]] && echo -n "$branch"
+  fi
+}
+
+git_files_prompt() {
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    local changes=$(git status -s -uno 2>/dev/null | wc -l)
+    if (( changes > 0 )); then
+        echo -n "$git_symbol $changes"
+    else
+        return 0
+    fi
+  fi
+}
+
+last_status_prompt() {
+  local last=$?
+  (( last != 0 )) && echo -n "$prompt_symbol_fail $last $prompt_symbol_fail"
+}
+
+
+# test
+CMD_COUNT=0
+command_count_prompt2() {
+  echo -n "⌨️${CMD_COUNT}"
+}
+
+
+command_count_prompt() {
+  echo -n "⌨️$((HISTCMD))"
+}
+
+ascii_art() {
+  echo " (⁀ᗢ⁀) 🌸"
+}
+
+
+
+ascii_art=(
+  "
+  ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+　|　Windows　　　　　　　　　　　　　　　　　　　　　[－][口][×]| |
+　|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣　￣|
+　|　Windows has detected You are a great person. 　　　　　　　　 |
+　|　　 Do you Agree?　　　　　　 　　　　　　　　　　　　　　　   |
+　|　　　　＿＿＿＿＿＿　　　　＿＿＿＿＿＿　　　        ＿＿＿　　|
+　| 　　　｜　　Yes　 |  　　  |　  Yes　 ｜    　 　   | Yes |　  |
+　|　　　　￣￣￣￣￣￣　　　　￣￣￣￣￣￣　　　　      ￣￣￣　　|
+　　￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣ 
+  "
+  "   ⠀⠀⠀⠀⠀⡠⠖⠋⠉⠉⠳⡴⠒⠒⠒⠲⠤⢤⣀
+⠀⠀⠀⠀⠀⠀⣠⠊⠀⠀⡴⠚⡩⠟⠓⠒⡖⠲⡄⠀⠀⠈⡆
+⠀⠀⠀⠀⢀⡞⠁⢠⠒⠾⢥⣀⣇⣚⣹⡤⡟⠀⡇⢠⠀⢠⠇
+⠀⠀⠀⠀⢸⣄⣀⠀⡇⠀⠀⠀⠀⠀⢀⡜⠁⣸⢠⠎⣰⣃
+⠀⠀⠀⠸⡍⠀⠉⠉⠛⠦⣄⠀⢀⡴⣫⠴⠋⢹⡏⡼⠁⠈⠙⢦⡀
+⠀⠀⠀⣀⡽⣄⠀⠀⠀⠀⠈⠙⠻⣎⡁⠀⠀⣸⡾⠀⠀⠀⠀⣀⡹⠂
+⠀⢀⡞⠁⠀⠈⢣⡀⠀⠀⠀⠀⠀⠀⠉⠓⠶⢟⠀⢀⡤⠖⠋⠁
+⠀⠀⠉⠙⠒⠦⡀⠙⠦⣀⠀⠀⠀⠀⠀⠀⢀⣴⡷⠋
+⠀⠀⠀⠀⠀⠀⠘⢦⣀⠈⠓⣦⣤⣤⣤⢶⡟⠁
+⢤⣤⣤⡤⠤⠤⠤⠤⣌⡉⠉⠁⠀⠀⢸⢸⠁⡠⠖⠒⠒⢒⣒⡶⣶⠤
+⠀⠉⠲⣍⠓⠦⣄⠀⠀⠙⣆⠀⠀⠀⡞⡼⡼⢀⣠⠴⠊⢉⡤⠚⠁
+⠀⠀⠀⠈⠳⣄⠈⠙⢦⡀⢸⡀⠀⢰⢣⡧⠷⣯⣤⠤⠚⠉
+⠀⠀⠀⠀⠀⠈⠑⣲⠤⠬⠿⠧⣠⢏⡞
+⠀⠀⠀⢀⡴⠚⠉⠉⢉⣳⣄⣠⠏⡞
+⠀⣠⣴⣟⣒⣋⣉⣉⡭⠟⢡⠏⡼ 
+"
+)
+
+
+ascii_selected=${ascii_art[RANDOM % ${#ascii_art[@]} + 1]}
+
+echo $ascii_selected
+
+
+configure_prompt() {
+
+ PROMPT=$'%F{%(#.blue.green)}┌──('
+#PROMPT+=$'{VIRTUAL_ENV:+$basename $VIRTUAL_ENV:t}'
+PROMPT+=$'%B%F{%(#.red.blue)}%n'
+#PROMPT+=$'%B%F{%(#.red.blue)}ghost'
+PROMPT+=$'$prompt_symbol%m'
+#PROMPT+=$'$prompt_symbol 65465462164654'
+PROMPT+=$'%F{%(#.blue.green)})-'
+PROMPT+=$'[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]'
+PROMPT+=$'%F{%(#.green.magenta)}'
+PROMPT+=$' $(git_branch_prompt)'
+PROMPT+=$' $(git_files_prompt)'
+#PROMPT+='${VIRTUAL_ENV:t}'
+PROMPT+=$'${VIRTUAL_ENV:+  ${VIRTUAL_ENV:t} $python_symbol }'
+PROMPT+=$'$(ascii_art) $(command_count_prompt) $(command_count_prompt2)'
+PROMPT+=$'%F{%(#.magenta.green)}'
+PROMPT+=$'\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+PROMPT+=$'$(last_status_prompt)'
+unset prompt_symbol
+
+}
+# Variables prompt
+
+if [ "$color_prompt" = yes ]; then
+    VIRTUAL_ENV_DISABLE_PROMPT=1
+    configure_prompt
+
+    # Syntax highlighting (Arch)
+    for hl in \
+        /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+        /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    do
+        [ -f "$hl" ] && source "$hl" && break
+    done
+fi
+
+
+unset color_prompt force_color_prompt
+
+# Equivalent Prompt command
+precmd () {
+
+    local cols=${COLUMNS:-$(tput cols)}
+    print ""
+    print -P "%F{magenta}${(l:$cols::─:)}%f"
+    print ""
+    
+    python_symbol=${python_symbols[$((RANDOM % ${#python_symbols[@]} + 1))]}
+    prompt_symbol=${prompt_symbols[$((RANDOM % ${#prompt_symbols[@]} + 1))]}
+    (( ${#git_symbols[@]} )) && git_symbol=${git_symbols[$((RANDOM % ${#git_symbols[@]} + 1))]} || git_symbol='A'
+
+    (( CMD_COUNT++))
+}

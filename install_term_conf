@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+rm ~/.bashrc
+rm ~/.bash_aliases
+rm ~/.bash_profile
+rm ~/.bash_logout
+rm ~/.inputrc
+rm ~/.zshrc
+rm ~/.zsh_aliases
+rm ~/.vimrc
+
+ln -s ~/1_myconfig_arch/1_conf_term/.bashrc ~/.bashrc
+ln -s ~/1_myconfig_arch/1_conf_term/.bash_aliases ~/.bash_aliases
+ln -s ~/1_myconfig_arch/1_conf_term/.bash_profile ~/.bash_profile
+ln -s ~/1_myconfig_arch/1_conf_term/.bash_logout ~/.bash_logout
+ln -s ~/1_myconfig_arch/1_conf_term/.inputrc ~/.inputrc
+ln -s ~/1_myconfig_arch/1_conf_term/.zshrc ~/.zshrc
+ln -s ~/1_myconfig_arch/1_conf_term/.zsh_aliases ~/.zsh_aliases
+ln -s ~/1_myconfig_arch/1_conf_term/.vimrc ~/.vimrc
+
+notify-send "change_theme" "restart for new term conf"
