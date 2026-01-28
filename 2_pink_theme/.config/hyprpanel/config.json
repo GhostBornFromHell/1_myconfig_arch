@@ -51,9 +51,7 @@
         "workspaces",
         "windowtitle"
       ],
-      "middle": [
-        "cava"
-      ],
+      "middle": [],
       "right": [
         "volume",
         "network",
