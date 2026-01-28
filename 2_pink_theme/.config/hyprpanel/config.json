@@ -51,13 +51,14 @@
         "workspaces",
         "windowtitle"
       ],
-      "middle": [],
+      "middle": [
+        "systray"
+      ],
       "right": [
         "volume",
         "network",
         "bluetooth",
         "battery",
-        "systray",
         "clock",
         "notifications"
       ]
@@ -221,6 +222,24 @@
       "org.qutebrowser.qutebrowser",
       "🌐",
       "Browser"
+    ],
+    [
+      "gjs",
+      "",
+      "Settings"
+    ],
+    [
+      "qpwgraph",
+      "",
+      "Qpwgraph"
     ]
-  ]
+  ],
+  "bar.workspaces.applicationIconMap": {
+    "qpwgraph": "",
+    "org.pulseaudio.pavucontrol": "🕪",
+    "com.github.wwmm.easyeffects": "",
+    "org.qutebrowser.qutebrowser": "🌐",
+    "gjs": ""
+  },
+  "bar.workspaces.workspaceIconMap": {}
 }
