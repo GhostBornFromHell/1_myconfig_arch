@@ -8,6 +8,10 @@ rm ~/.config/fastfetch
 rm ~/.config/kitty
 rm ~/.config/hypr
 rm ~/.config/hyprpanel
+rm ~/.config/mpv
+rm ~/.config/qutebrowser
+rm ~/.config/pipewire
+rm ~/.config/OpenRGB
 
 ln -s ~/1_myconfig_arch/2_pink_theme/.config/bash ~/.config/bash
 ln -s ~/1_myconfig_arch/2_pink_theme/.config/zsh ~/.config/zsh
@@ -17,5 +21,9 @@ ln -s ~/1_myconfig_arch/2_pink_theme/.config/fastfetch ~/.config/fastfetch
 ln -s ~/1_myconfig_arch/2_pink_theme/.config/kitty ~/.config/kitty
 ln -s ~/1_myconfig_arch/2_pink_theme/.config/hypr ~/.config/hypr
 ln -s ~/1_myconfig_arch/2_pink_theme/.config/hyprpanel ~/.config/hyprpanel
+ln -s ~/1_myconfig_arch/2_pink_theme/.config/mpv ~/.config/mpv
+ln -s ~/1_myconfig_arch/2_pink_theme/.config/qutebrowser ~/.config/qutebrowser
+ln -s ~/1_myconfig_arch/2_pink_theme/.config/pipewire ~/.config/pipewire
+ln -s ~/1_myconfig_arch/2_pink_theme/.config/OpenRGB ~/.config/OpenRGB
 
 notify-send "change_theme" "restrart for pink theme"
