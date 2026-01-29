@@ -68,6 +68,7 @@ alias getlinks='lynx -dump -nonumbers -list_decoded -listonly -hiddenlinks=listo
 alias getsource='lynx -source'
 alias getcontent='lynx -dump -nonumbers -nolist'
 
+
 hog() {
     # info system
     watch -n1 "ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 10; free -h; echo 'Swap in/out:'; vmstat 1 2 | tail -n1"

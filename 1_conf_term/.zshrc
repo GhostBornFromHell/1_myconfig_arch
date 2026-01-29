@@ -83,6 +83,7 @@ fi
 # Variables
 
 [ -f ~/.priv/.git_identities ] && . ~/.priv/.git_identities
+[ -f ~/.priv/.alfonc ] && . ~/.priv/.alfonc
 
 # Prompt  séparés
 [ -f ~/.config/zsh/promptrc ] && . ~/.config/zsh/promptrc
