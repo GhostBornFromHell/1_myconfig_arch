@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+rm ~/.config/bash
+rm ~/.config/zsh
+rm ~/.config/fzf
+rm ~/.config/rofi
+rm ~/.config/fastfetch
+rm ~/.config/kitty
+rm ~/.config/hypr
+rm ~/.config/hyprpanel
+
+ln -s ~/1_myconfig_arch/3_green_theme/.config/bash ~/.config/bash
+ln -s ~/1_myconfig_arch/3_green_theme/.config/zsh ~/.config/zsh
+ln -s ~/1_myconfig_arch/3_green_theme/.config/fzf ~/.config/fzf
+ln -s ~/1_myconfig_arch/3_green_theme/.config/rofi ~/.config/rofi
+ln -s ~/1_myconfig_arch/3_green_theme/.config/fastfetch ~/.config/fastfetch
+ln -s ~/1_myconfig_arch/3_green_theme/.config/kitty ~/.config/kitty
+ln -s ~/1_myconfig_arch/3_green_theme/.config/hypr ~/.config/hypr
+ln -s ~/1_myconfig_arch/3_green_theme/.config/hyprpanel ~/.config/hyprpanel
+
+notify-send "change_theme" "restart for green theme"

@@ -1,0 +1,18 @@
+# fzf
+export FZF_DEFAULT_OPTS="
+--height 40%
+--layout=reverse
+--border
+--info=inline
+--prompt='🫶 '
+--pointer='👉'
+--marker='😁'
+--multi
+--color=fg+:#ffffff,bg+:#FF0062,hl+:#2DD4FF
+--color=fg:#ffffff,bg:#000000,hl:#FF0062
+--color=spinner:#7dcfff,info:#7aa2f7
+#--preview 'bat --style=numbers  --color=always  {..}'
+#--preview '[[ \$(file --mime {}) =~ image ]] && kitten icat --clear  --stdin no --transfer-mode memory --place 40x40@0x0 {} || bat --style=numbers --color=always {}'
+--preview '~/save_arch/.config/fzf/fzfpreview.sh {}'
+--preview-window right:80%:border-left
+"

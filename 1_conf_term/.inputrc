@@ -1,0 +1,39 @@
+# get the Meta Control syntax
+
+#completion
+set completion-ignore-case on
+set completion-prefix-display-length 5
+TAB: menu-complete
+"\e[Z": menu-complete-backward
+# one tab only for completion
+set show-all-if-ambiguous on
+
+# color cmd prefix
+set colored-completion-prefix on
+
+# color file completion
+set colored-stats on
+
+# match parenthesis
+set blink-matching-paren on
+
+# mode emacs
+# set editing-mode emacs
+# set keymap emacs-meta
+# set emacs-mode-string (emacs) 
+# set show-mode-in-prompt on
+# set bind-tty-special-chars off
+
+# no tty bind
+# stty -a => ctrl-u/ctrl-w...
+set bind-tty-special-chars off
+
+# to be able to alt - utf8 ???
+# meta-flag synonym of input-meta
+# set meta-flag on
+# set input-meta on
+# set output-meta on
+# set enable-meta-key off
+# problem with this one !!!
+# set convert-meta on
+set convert-meta off

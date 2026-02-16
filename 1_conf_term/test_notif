@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+dbus-monitor "interface='org.freedesktop.Notifications'" | while read -r line; do
+    if [[ "$line" =~ string\ \"test\" ]]; then
+        echo "."
+        echo "[MATCH] notification filtrer sur : test"
+        echo ""
+        echo "$line"
+        echo "."
+        paplay /usr/share/sounds/freedesktop/stereo/trash-empty.oga
+    #else
+        #echo "[OTHER] notification non filtrer"
+        #echo "$line"
+    fi
+done
