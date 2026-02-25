@@ -358,7 +358,7 @@ starttransfer:  %{time_starttransfer}s\n\
         total:  %{time_total}s\n" -so /dev/null "$@" #-so /dev/null "$@"
 }
 
-disable_ipv6() {
+disableipv6() {
     # supprime ipv6 definitif
     local conn="$1"
     nmcli connection modify "$conn" ipv6.method disabled
@@ -366,7 +366,7 @@ disable_ipv6() {
     echo "IPv6 désactivé pour $conn 😏"
 }
 
-set_dns() {
+setdns() {
     # set les dns
     local conn="$1"
     shift
@@ -376,7 +376,7 @@ set_dns() {
     echo "DNS pour $conn : $dns 💖"
 }
 
-clean_tmp() {
+cleantmp() {
     # rm les fichier tmp
     echo "🧹 Suppression fichiers temporaires..."
     rm -rf /tmp/*
