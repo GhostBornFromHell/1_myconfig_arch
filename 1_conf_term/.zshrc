@@ -11,6 +11,8 @@ setopt rematch_pcre
 [ -f ~/.config/fzf/config ] && source ~/.config/fzf/config
 
 # ~/.zshrc – shells interactifs
+setopt rm_star_silent
+
 
 setopt autocd
 setopt interactivecomments
